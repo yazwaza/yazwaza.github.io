@@ -1,0 +1,70 @@
+<html>
+  <title> Projects </title>
+  <body>
+    <h1> My Projects</h1>
+    <p>
+      Below is a collection of quantitative finance projects I have completed as part of my 
+      academic and self directed research. Each project reflects my interest in applying 
+      data driven methods to real financial markets. My work spans fixed income modeling, 
+      foreign exchange analysis, macroeconomic forecasting, and statistical arbitrage. 
+      Through these projects I have developed proficiency in Python, statistical modeling, 
+      and financial data analysis. I am particularly drawn to areas where mathematics and 
+      markets intersect, and where rigorous methodology can uncover insights that intuition 
+      alone cannot. Each project has also taught me the importance of understanding the 
+      limitations of models, not just their outputs. Markets are complex adaptive systems, 
+      and a model that works in one regime can fail completely in another. That lesson 
+      runs through all of my work and continues to shape how I approach new problems.
+    </p>
+
+    <ul>
+      <li>
+        <strong>US Treasury Yield Curve Modeling</strong> — Built a Nelson-Siegel-Svensson 
+        model using Nelder-Mead optimization to fit US Treasury yields across 13 maturities. 
+        Achieved an R² of 0.99 by processing 2 years of daily data with warm-start 
+        initialization and vectorized operations in Python. The model captures short-term 
+        volatility as well as long-term curve features like the 10-year dip and 20-year hump, 
+        though it struggles with sudden regime changes such as Fed policy shifts and 
+        inverted yield curves.
+      </li>
+      <li>
+        <strong>Forex Technical Indicator Testing and Dollar Strength Index</strong> — 
+        Tested whether RSI and CCI indicators could predict USD-CHF price reversals. 
+        Found that extreme overbought and oversold readings did not predict reversals; 
+        prices continued trending in the same direction. Also built a custom Dollar 
+        Strength Index using the Federal Reserve's NEER data across 9 currency pairs, 
+        weighted by trade volume. My index achieved an 83% correlation with the Fed's 
+        official measure, validating the methodology.
+      </li>
+            <li>
+        <strong>NFP Forecasting Using Initial Jobless Claims</strong> — Built a model 
+        to predict the monthly Non-Farm Payrolls report using weekly unemployment claims. 
+        The model showed weak predictive power before COVID with an R² of just 6% and 
+        average errors of around 76,000 jobs. During COVID the model completely broke 
+        down with errors exceeding 2,700,000 jobs, demonstrating how structural regime 
+        changes can render statistical relationships useless.
+      </li>
+
+      <li>
+        <strong>Forex Graph Theory and Triangular Arbitrage</strong> — Modeled currency 
+        markets as a graph with currencies as nodes and pairs as edges. Identified 
+        theoretical triangular arbitrage opportunities and tested them through paper 
+        trading with promising initial results. However, real-world implementation 
+        revealed significant challenges including bid-ask spreads of 0.3 to 0.5% on 
+        exotic pairs, execution latency, and liquidity constraints. The project deepened 
+        my understanding of market microstructure and transaction cost modeling.
+      </li>
+
+      <li>
+        <strong>Pairs Trading: JNK and Bitcoin (Current)</strong> — Exploring a pairs 
+        trading strategy between JNK, a high yield bond ETF, and Bitcoin. The pair was 
+        chosen due to my interest in credit markets and the evolving narrative around 
+        Bitcoin, including its political dimensions and emerging links to institutional 
+        finance. Used cointegration testing to confirm the two assets move together, 
+        yielding a cointegration value of 0.91. Followed with regression analysis to 
+        establish R² and applied an Ornstein-Uhlenbeck process to calculate the half 
+        life of mean reversion.
+      </li>
+    </ul>
+  </body>
+</html>
+
