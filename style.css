@@ -1,0 +1,428 @@
+/* ============================================
+   YAZWAZA PORTFOLIO — BOLD MONOSPACE THEME
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:        #0a0a0a;
+  --surface:   #111111;
+  --surface2:  #1a1a1a;
+  --border:    #2a2a2a;
+  --accent:    #00ff88;
+  --accent2:   #ff3d00;
+  --accent3:   #00cfff;
+  --text:      #f0f0f0;
+  --muted:     #666666;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.8;
+  min-height: 100vh;
+  cursor: crosshair;
+  overflow-x: hidden;
+}
+
+/* ── Scanline overlay effect ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ── Navigation ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--accent);
+  overflow: hidden;
+}
+
+nav::before {
+  content: '> YAZWAZA.IO_';
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 16px 24px;
+  letter-spacing: 0.15em;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+nav a {
+  display: inline-block;
+  padding: 16px 28px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-right: 1px solid var(--border);
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+  background: rgba(0,255,136,0.05);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ── Page wrapper ── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+/* If no .container, apply to body direct children */
+body > h1, body > h2, body > p, body > ul, body > img, body > section {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* ── Hero section (index.html) ── */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 32px 60px;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero::before {
+  content: '// PORTFOLIO v1.0';
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+/* ── Headings ── */
+h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+h1 span.accent {
+  color: var(--accent);
+}
+
+h1::after {
+  content: '_';
+  color: var(--accent);
+  animation: blink-cursor 1s step-end infinite;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 20px;
+  margin-top: 56px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+h2::before {
+  content: '## ';
+  color: var(--accent2);
+  font-size: 0.65em;
+  vertical-align: middle;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent3);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+}
+
+/* ── Paragraphs ── */
+p {
+  color: #b0b0b0;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  max-width: 720px;
+}
+
+/* ── Profile image ── */
+img {
+  display: block;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 30px rgba(0,255,136,0.15), 4px 4px 0 var(--accent2);
+  margin: 32px 0;
+  max-width: 200px;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.3s, box-shadow 0.3s;
+}
+
+img:hover {
+  filter: grayscale(0%) contrast(1.1);
+  box-shadow: 0 0 50px rgba(0,255,136,0.3), 6px 6px 0 var(--accent2);
+}
+
+/* ── Lists ── */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+ul li, ol li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 20px 24px;
+  font-size: 13px;
+  color: #b0b0b0;
+  line-height: 1.8;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  position: relative;
+}
+
+ul li::before {
+  content: '→ ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+ol {
+  counter-reset: project-counter;
+}
+
+ol li {
+  counter-increment: project-counter;
+}
+
+ol li::before {
+  content: counter(project-counter, decimal-leading-zero) '. ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+ul li:hover, ol li:hover {
+  background: var(--surface2);
+  border-left-color: var(--accent2);
+  transform: translateX(4px);
+}
+
+li strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Links ── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+
+a:not(nav a)::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+a:not(nav a):hover {
+  color: var(--accent);
+}
+
+a:not(nav a):hover::after {
+  width: 100%;
+}
+
+/* ── Tag / badge ── */
+.tag {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  margin: 3px 3px 3px 0;
+}
+
+/* ── Contact section ── */
+.contact {
+  margin-top: 64px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent3);
+  background: var(--surface);
+}
+
+.contact h2 {
+  border: none;
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.contact h2::before {
+  content: '## ';
+  color: var(--accent3);
+}
+
+.contact a {
+  color: var(--accent3);
+  font-size: 13px;
+  display: inline-block;
+  margin-right: 24px;
+  margin-top: 8px;
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 80px;
+  padding: 24px 32px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+footer::before {
+  content: '/* ';
+}
+
+footer::after {
+  content: ' */';
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+/* ── Page load animation ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, p, ul, img, .contact {
+  animation: fade-up 0.5s ease both;
+}
+
+h1  { animation-delay: 0.05s; }
+h2  { animation-delay: 0.1s; }
+p   { animation-delay: 0.15s; }
+img { animation-delay: 0.2s; }
+ul  { animation-delay: 0.25s; }
+.contact { animation-delay: 0.3s; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  nav::before { display: none; }
+  nav a { padding: 14px 16px; font-size: 10px; }
+  h1 { font-size: 2.2rem; }
+  body > h1, body > h2, body > p, body > ul, body > img {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
